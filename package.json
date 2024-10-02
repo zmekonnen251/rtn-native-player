@@ -1,0 +1,39 @@
+{
+  "name": "rtn-player",
+  "version": "0.0.1",
+  "description": "A React Native module for playing audio files using AVPlayer on iOS and ExoPlayer on Android.",
+  "react-native": "js/index",
+  "source": "js/index",
+  "files": [
+    "js",
+    "android",
+    "ios",
+    "rtn-player.podspec",
+    "!android/build",
+    "!ios/build",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
+  ],
+  "keywords": ["react-native", "ios", "android"],
+  "repository": "https://github.com/zmekonnen251/rtn-native-player",
+  "author": "<Zelalem Mekonnen> <dev360.tech@gmail.com> (https://github.com/zmekonnen251)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zmekonnen251/rtn-native-player/issues"
+  },
+  "homepage": "https://github.com/zmekonnen251/rtn-native-player#readme",
+  "devDependencies": {},
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "codegenConfig": {
+    "name": "RTNPlayerSpec",
+    "type": "modules",
+    "jsSrcsDir": "js",
+    "android": {
+      "javaPackageName": "com.rtnplayer"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+buildscript {
+  ext.safeExtGet = {prop, fallback ->
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+  }
+  repositories {
+    google()
+    gradlePluginPortal()
+  }
+  dependencies {
+    classpath("com.android.tools.build:gradle:8.3.0")
+    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0")
+  }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'com.facebook.react'
+apply plugin: 'org.jetbrains.kotlin.android'
+
+android {
+  compileSdkVersion safeExtGet('compileSdkVersion', 34)
+  namespace "com.rtnplayer"
+
+  defaultConfig{
+    minSdkVersion safeExtGet('minSdkVersion', 21)
+    targetSdkVersion safeExtGet('targetSdkVersion', 34)
+    buildConfigField("boolean", "IS_NEW_ARCHITECTURE_ENABLED", "true")
+  }
+}
+
+repositories {
+  mavenCentral()
+  google()
+}
+
+def mediaVersion = "1.4.1"
+def kotlinVersion = "1.8.0"
+
+dependencies {
+  implementation "com.facebook.react:react-native"
+  implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+  implementation "androidx.media3:media3-exoplayer:$mediaVersion"
+  implementation "androidx.media3:media3-ui:$mediaVersion"
+  implementation "androidx.media3:media3-common:$mediaVersion"
+  implementation "androidx.media3:media3-session:$mediaVersion"
+  implementation "androidx.media3:media3-exoplayer-dash:$mediaVersion"
+}
